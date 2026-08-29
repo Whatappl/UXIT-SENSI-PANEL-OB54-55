@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UXIT SENSI PANEL OB54+OB55 - Fearless Xits</title>
+  
+  <!-- Premium Gaming & Modern Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #05040a;
+      --card-bg: rgba(18, 14, 33, 0.65);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent-color: #ff2a55;
+      --accent-gradient: linear-gradient(135deg, #ff2a55 0%, #ff6b00 100%);
+      --accent-glow: rgba(255, 42, 85, 0.35);
+      --input-bg: rgba(10, 7, 20, 0.7);
+      --input-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f1effa;
+      --text-muted: #8e88ab;
+      --whatsapp-color: #25d366;
+      --whatsapp-glow: rgba(37, 211, 102, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient Background Elements */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.15;
+    }
+
+    .glow-orb-1 {
+      width: 400px;
+      height: 400px;
+      background: #ff2a55;
+      top: -100px;
+      left: -100px;
+    }
+
+    .glow-orb-2 {
+      width: 500px;
+      height: 500px;
+      background: #7928ca;
+      bottom: -150px;
+      right: -150px;
+    }
+
+    /* Anti-Screenshot Overlay */
+    #securityShield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(5, 4, 10, 0.96);
+      backdrop-filter: blur(30px);
+      z-index: 999999;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #securityShield h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent-color);
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+
+    #securityShield p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Screen Base */
+    .screen {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 24px 18px;
+      z-index: 1;
+    }
+
+    /* --- SCREEN 1: LANDING PAGE --- */
+    #welcomeScreen {
+      z-index: 10;
+      background: linear-gradient(180deg, rgba(5, 4, 10, 0.3) 0%, rgba(5, 4, 10, 0.95) 80%), 
+                  url('https://cdn.phototourl.com/free/2026-08-29-ab9b5455-c950-4ca9-a632-17ed51768bac.jpg') center/cover no-repeat;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding-bottom: 60px;
+    }
+
+    .welcome-content {
+      width: 100%;
+      animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .welcome-tag {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .welcome-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 30px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+
+    .btn-enter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background: var(--accent-gradient);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      padding: 18px 36px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 8px 30px var(--accent-glow);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-enter:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(255, 42, 85, 0.5);
+    }
+
+    /* --- SCREEN 1.5: SHARE LOCK GATEWAY --- */
+    #shareScreen {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      z-index: 8;
+      background: rgba(5, 4, 10, 0.95);
+      backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #shareScreen.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .share-card {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .share-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .share-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      background: var(--input-bg);
+      border-radius: 10px;
+      height: 12px;
+      border: 1px solid var(--input-border);
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+    }
+
+    .counter-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      color: var(--accent-color);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .btn-share {
+      width: 100%;
+      background: rgba(37, 211, 102, 0.1);
+      border: 1px solid var(--whatsapp-color);
+      color: var(--whatsapp-color);
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      margin-bottom: 12px;
+    }
+
+    .btn-share:hover {
+      background: rgba(37, 211, 102, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* --- SCREEN 2: MAIN PANEL --- */
+    #panelScreen {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      z-index: 5;
+    }
+
+    #panelScreen.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .profile-frame {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      padding: 3px;
+      background: var(--accent-gradient);
+      box-shadow: 0 0 25px var(--accent-glow);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .header-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+    }
+
+    .header-sub {
+      color: var(--accent-color);
+      font-size: 0.75rem;
+      margin-top: 4px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* Glassmorphism Card Style */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 12px 14px;
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 500;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent-color);
+      box-shadow: 0 0 15px var(--accent-glow);
+    }
+
+    select option {
+      background-color: #0d0a1a;
+      color: #fff;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button.btn-action {
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-submit {
+      flex: 1;
+      background: var(--accent-gradient);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      box-shadow: 0 6px 20px var(--accent-glow);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 42, 85, 0.5);
+    }
+
+    .btn-reset {
+      flex: 0.3;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--input-border);
+      color: var(--text-muted);
+    }
+
+    .btn-reset:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .error-msg {
+      color: var(--accent-color);
+      font-size: 0.78rem;
+      margin-top: 8px;
+      display: none;
+      font-weight: 600;
+    }
+
+    /* Results Section */
+    .results-container {
+      display: none;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .results-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      color: #fff;
+      margin-bottom: 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: var(--input-bg);
+      border-radius: 12px;
+      margin-bottom: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .stat-name {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .file-download-box {
+      margin-top: 14px;
+      padding: 14px;
+      background: rgba(255, 42, 85, 0.05);
+      border: 1px solid rgba(255, 42, 85, 0.3);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .file-download-box p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .btn-download-file {
+      display: inline-block;
+      width: 100%;
+      background: var(--accent-gradient);
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .ios-note {
+      background-color: rgba(0, 255, 204, 0.03);
+      border: 1px solid rgba(0, 255, 204, 0.2);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: #00ffcc;
+      line-height: 1.5;
+    }
+
+    .ios-note strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 0.5px;
+    }
+
+    .ios-note ul {
+      margin-left: 16px;
+      color: rgba(0, 255, 204, 0.85);
+    }
+
+    /* Channels Section */
+    .channels-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .channels-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .channel-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      background: rgba(37, 211, 102, 0.05);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      color: var(--whatsapp-color);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      transition: all 0.25s ease;
+    }
+
+    .channel-btn:hover {
+      background: rgba(37, 211, 102, 0.15);
+      border-color: var(--whatsapp-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--whatsapp-glow);
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false;">
+
+  <!-- Ambient Dynamic Background Orbs -->
+  <div class="ambient-bg">
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+  </div>
+
+  <!-- Security Shield Overlay -->
+  <div id="securityShield">
+    <h2>SECURITY ALERT 🛡️</h2>
+    <p>Screenshots & App Switching are restricted.</p>
+  </div>
+
+  <!-- LANDING PAGE SCREEN -->
+  <div class="screen" id="welcomeScreen">
+    <div></div>
+    <div class="welcome-content">
+      <div class="welcome-tag">OB54 & OB55 Optimization</div>
+      <div class="welcome-title">Let's Find Your Settings</div>
+      <button class="btn-enter" id="enterBtn">ENTER PANEL</button>
+    </div>
+  </div>
+
+  <!-- SHARE LOCK GATEWAY SCREEN -->
+  <div class="screen" id="shareScreen">
+    <div></div>
+    <div class="share-card">
+      <div class="share-title">Unlock Required 🔒</div>
+      <div class="share-desc">Before accessing the OB54+55 Sensi Panel & Free Headshot File, you must forward this panel to WhatsApp groups or friends <strong>5 times</strong>.</div>
+      
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="counter-text" id="counterText">Shares: 0 / 5</div>
+
+      <button class="btn-share" id="shareBtn">
+        <span>📲 Share to WhatsApp (0/5)</span>
+      </button>
+    </div>
+    <div></div>
+  </div>
+
+  <!-- MAIN SENSI PANEL SCREEN -->
+  <div class="screen" id="panelScreen">
+    <div>
+      <div class="profile-header">
+        <div class="profile-frame">
+          <img src="https://cdn.phototourl.com/free/2026-08-29-ab9b5455-c950-4ca9-a632-17ed51768bac.jpg" alt="Fearless Xits Avatar">
+        </div>
+        <div class="header-title">UXIT SENSI PANEL OB54+55</div>
+        <div class="header-sub">By Fearless Xits</div>
+      </div>
+
+      <!-- Input Form Card -->
+      <div class="card">
+        <div class="form-group">
+          <label for="deviceInput">Device Brand & Model</label>
+          <input type="text" id="deviceInput" placeholder="e.g., iPhone 17, Samsung A32, Tecno Spark 10" autocomplete="off">
+          <div id="errorMsg" class="error-msg"></div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="ramInput">RAM</label>
+            <select id="ramInput">
+              <option value="2">2 GB</option>
+              <option value="3">3 GB</option>
+              <option value="4" selected>4 GB</option>
+              <option value="6">6 GB</option>
+              <option value="8">8 GB</option>
+              <option value="12">12 GB+</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="storageInput">Storage</label>
+            <select id="storageInput">
+              <option value="32">32 GB</option>
+              <option value="64">64 GB</option>
+              <option value="128" selected>128 GB</option>
+              <option value="256">256 GB</option>
+              <option value="512">512 GB+</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ageInput">Device Age (Years)</label>
+          <input type="number" id="ageInput" placeholder="e.g., 1.5" step="0.1" min="0" max="10">
+        </div>
+
+        <div class="btn-group">
+          <button class="btn-action btn-submit" id="generateBtn">GENERATE SENSI</button>
+          <button class="btn-action btn-reset" id="resetBtn">RESET</button>
+        </div>
+      </div>
+
+      <!-- Results Card -->
+      <div class="card results-container" id="resultsCard">
+        <div class="results-title" id="resultsHeader">Device Sensitivity</div>
+        
+        <div class="stat-row"><span class="stat-name">Device DPI / Mode</span><span class="stat-value" id="resDpi">-</span></div>
+        <div class="stat-row"><span class="stat-name">General</span><span class="stat-value" id="resGeneral">-</span></div>
+        <div class="stat-row"><span class="stat-name">Red Dot</span><span class="stat-value" id="resRedDot">-</span></div>
+        <div class="stat-row"><span class="stat-name">2X Scope</span><span class="stat-value" id="res2x">-</span></div>
+        <div class="stat-row"><span class="stat-name">4X Scope</span><span class="stat-value" id="res4x">-</span></div>
+        <div class="stat-row"><span class="stat-name">Sniper Scope</span><span class="stat-value" id="resSniper">-</span></div>
+        <div class="stat-row"><span class="stat-name">Free Look</span><span class="stat-value" id="resFreeLook">-</span></div>
+        <div class="stat-row"><span class="stat-name">Fire Button Size</span><span class="stat-value" id="resFireBtn">-</span></div>
+
+        <!-- Free Drag Headshot File Box -->
+        <div class="file-download-box">
+          <p>🎁 Free OB54+55 Drag Headshot Script File Unlocked!</p>
+          <a href="https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E" target="_blank" class="btn-download-file">DOWNLOAD CONFIG FILE 📥</a>
+        </div>
+
+        <div id="iosExtra" class="ios-note" style="display: none;">
+          <strong>iOS TouchLock Controls:</strong>
+          <ul>
+            <li>Touch Accommodations: Enabled</li>
+            <li>3D / Haptic Touch: Fast / Light</li>
+            <li>Sensitivity Dampening: Active</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Official Channels Section -->
+    <div class="card">
+      <div class="channels-title">Official Channels</div>
+      <div class="channels-group">
+        <a href="https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E" target="_blank" class="channel-btn">
+          Join Main Channel
+        </a>
+        <a href="https://whatsapp.com/channel/0029VbD11EtAYlUQxZMuK045" target="_blank" class="channel-btn">
+          Join Backup Channel
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb8dD7a5q08gPKk13w2R" target="_blank" class="channel-btn">
+          Join Setup Channel
+        </a>
+      </div>
+    </div>
+  </div>
+
+<script>
+  /* --- ANTI-SCREENSHOT & ANTI-COPY PROTECTION --- */
+  const shield = document.getElementById("securityShield");
+
+  function triggerShield() {
+    shield.style.display = "flex";
+  }
+
+  function hideShield() {
+    shield.style.display = "none";
+  }
+
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      triggerShield();
+    } else {
+      setTimeout(hideShield, 2000);
+    }
+  });
+
+  window.addEventListener("blur", function() {
+    triggerShield();
+  });
+
+  window.addEventListener("focus", function() {
+    setTimeout(hideShield, 1500);
+  });
+
+  document.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText("");
+      triggerShield();
+      setTimeout(hideShield, 3000);
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (
+      e.key === "PrintScreen" || 
+      (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'i' || e.key === 'p')) ||
+      (e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4' || e.key === '5')) ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+      triggerShield();
+      setTimeout(hideShield, 2500);
+    }
+  });
+
+  document.addEventListener('copy', function (e) {
+    e.preventDefault();
+  });
+
+  /* --- SCREEN SWITCHING & SHARE LOCK LOGIC --- */
+  const enterBtn = document.getElementById("enterBtn");
+  const welcomeScreen = document.getElementById("welcomeScreen");
+  const shareScreen = document.getElementById("shareScreen");
+  const panelScreen = document.getElementById("panelScreen");
+  
+  const shareBtn = document.getElementById("shareBtn");
+  const progressBar = document.getElementById("progressBar");
+  const counterText = document.getElementById("counterText");
+
+  let shareCount = 0;
+  const targetShares = 5;
+
+  enterBtn.addEventListener("click", function() {
+    welcomeScreen.style.opacity = "0";
+    welcomeScreen.style.transform = "translateY(-20px)";
+    
+    setTimeout(() => {
+      welcomeScreen.style.display = "none";
+      shareScreen.classList.add("active");
+    }, 400);
+  });
+
+  shareBtn.addEventListener("click", function() {
+    const shareText = encodeURIComponent("🔥 BEST UXIT SENSITIVITY FOR FREE FIRE OB54+55 (ANDROID+IOS)\nGET THEM HERE: https://whatsapp.com/channel/0029VbDIkfX3GJOotlw08M3E\nAnd Get Free Drag Headshot File!");
+    const whatsappUrl = `https://api.whatsapp.com/send?text=${shareText}`;
+    
+    // Open WhatsApp share link
+    window.open(whatsappUrl, '_blank');
+
+    if (shareCount < targetShares) {
+      shareCount++;
+      const percent = (shareCount / targetShares) * 100;
+      progressBar.style.width = percent + "%";
+      counterText.innerText = `Shares: ${shareCount} / ${targetShares}`;
+      shareBtn.querySelector("span").innerText = `📲 Share to WhatsApp (${shareCount}/${targetShares})`;
+
+      if (shareCount >= targetShares) {
+        shareBtn.style.background = "rgba(37, 211, 102, 0.3)";
+        shareBtn.innerHTML = "<span>✅ Unlocked! Loading Panel...</span>";
+        
+        setTimeout(() => {
+          shareScreen.style.opacity = "0";
+          shareScreen.style.transform = "translateY(-20px)";
+          setTimeout(() => {
+            shareScreen.style.display = "none";
+            panelScreen.classList.add("active");
+          }, 400);
+        }, 1000);
+      }
+    }
+  });
+
+  /* --- SENSI GENERATOR LOGIC --- */
+  const deviceInput = document.getElementById("deviceInput");
+  const ramInput = document.getElementById("ramInput");
+  const storageInput = document.getElementById("storageInput");
+  const ageInput = document.getElementById("ageInput");
+  const errorMsg = document.getElementById("errorMsg");
+  const generateBtn = document.getElementById("generateBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const resultsCard = document.getElementById("resultsCard");
+  const iosExtra = document.getElementById("iosExtra");
+
+  const validBrands = [
+    "iphone", "apple", "ipad", "samsung", "tecno", "infinix", "xiaomi", "redmi", 
+    "poco", "vivo", "oppo", "realme", "oneplus", "nokia", "motorola", "moto", 
+    "google", "pixel", "honor", "huawei", "asus", "rog", "nothing", "itel", 
+    "zte", "nubia", "redmagic", "lenovo", "lg", "sony", "tcl"
+  ];
+
+  function validateDevice(input) {
+    const clean = input.trim().toLowerCase().replace(/\s+/g, ' ');
+
+    if (!clean) {
+      return { valid: false, msg: "Please enter your device brand and model." };
+    }
+
+    const matchedBrand = validBrands.find(brand => clean.includes(brand));
+    
+    if (!matchedBrand) {
+      return { 
+        valid: false, 
+        msg: `Brand not recognized. Enter a valid mobile brand (e.g., iPhone, Samsung, Tecno, Nokia).` 
+      };
+    }
+
+    const isIos = matchedBrand === "iphone" || matchedBrand === "apple" || matchedBrand === "ipad";
+    const modelPart = clean.replace(matchedBrand, "").trim();
+
+    if (!modelPart) {
+      return { 
+        valid: false, 
+        msg: `Please enter the model after ${matchedBrand.toUpperCase()} (e.g., ${matchedBrand.toUpperCase()} 17).` 
+      };
+    }
+
+    if (isIos && matchedBrand === "iphone") {
+      if (/^[a-z][0-9]+/i.test(modelPart)) {
+        return { valid: false, msg: `"${input}" is not a valid iPhone model.` };
+      }
+    }
+
+    return { valid: true, isIos: isIos };
+  }
+
+  function getHash(str) {
+    let hash = 0;
+    const cleanStr = str.toLowerCase().replace(/\s+/g, '');
+    for (let i = 0; i < cleanStr.length; i++) {
+      hash = (hash << 5) - hash + cleanStr.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function generateSensitivity(deviceName, ramVal, storageVal, ageVal, isIos) {
+    const hash = getHash(deviceName);
+    const ram = parseInt(ramVal) || 4;
+    const age = parseFloat(ageVal) || 1.0;
+    
+    const ramMod = ram <= 3 ? 4 : (ram >= 8 ? -2 : 0);
+    const ageFactor = Math.min(Math.round(age * 1.5), 8);
+
+    if (isIos) {
+      const baseGen = 78 + (hash % 12) - Math.floor(ageFactor / 2);
+      const general = Math.max(65, Math.min(95, baseGen));
+
+      return {
+        isIos: true,
+        dpi: "System TouchLock Default",
+        general: general,
+        redDot: Math.max(60, general - 5),
+        scope2x: Math.max(55, general - 10),
+        scope4x: Math.max(50, general - 16),
+        sniper: 45 + (hash % 6),
+        freeLook: 80,
+        fireBtn: `${48 + (hash % 4)}%`
+      };
+    } else {
+      const isHighEnd = /ultra|rog|pro|gt|fold|flagship|s24|s25|edge/i.test(deviceName) || ram >= 8;
+      const baseDpi = isHighEnd ? 450 : 360;
+      const maxDpiCap = isHighEnd ? 580 : 460;
+
+      const calculatedDpi = baseDpi + (hash % 60) + (ageFactor * 2);
+      const recommendedDpi = Math.min(maxDpiCap, calculatedDpi);
+      
+      let baseGen = 196 - Math.round(recommendedDpi * 0.07) + ramMod + ageFactor + (hash % 5);
+      baseGen = Math.max(160, Math.min(198, baseGen));
+
+      return {
+        isIos: false,
+        dpi: `${recommendedDpi} DPI (Developer Options)`,
+        general: baseGen,
+        redDot: Math.min(200, baseGen - 4),
+        scope2x: Math.min(200, baseGen - 11),
+        scope4x: Math.min(200, baseGen - 18),
+        sniper: 85 + (hash % 6),
+        freeLook: 145,
+        fireBtn: `${44 + (hash % 6)}%`
+      };
+    }
+  }
+
+  generateBtn.addEventListener("click", function() {
+    const rawInput = deviceInput.value.trim();
+    const check = validateDevice(rawInput);
+
+    if (!check.valid) {
+      resultsCard.style.display = "none";
+      errorMsg.innerText = check.msg;
+      errorMsg.style.display = "block";
+      return;
+    }
+
+    errorMsg.style.display = "none";
+    const data = generateSensitivity(rawInput, ramInput.value, storageInput.value, ageInput.value, check.isIos);
+
+    const formattedTitle = rawInput.replace(/\b\w/g, l => l.toUpperCase());
+    document.getElementById("resultsHeader").innerText = `${formattedTitle} (${ramInput.value}GB RAM) Sensi`;
+
+    document.getElementById("resDpi").innerText = data.dpi;
+    document.getElementById("resGeneral").innerText = data.general;
+    document.getElementById("resRedDot").innerText = data.redDot;
+    document.getElementById("res2x").innerText = data.scope2x;
+    document.getElementById("res4x").innerText = data.scope4x;
+    document.getElementById("resSniper").innerText = data.sniper;
+    document.getElementById("resFreeLook").innerText = data.freeLook;
+    document.getElementById("resFireBtn").innerText = data.fireBtn;
+
+    iosExtra.style.display = data.isIos ? "block" : "none";
+    resultsCard.style.display = "block";
+    
+    resultsCard.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  resetBtn.addEventListener("click", function() {
+    deviceInput.value = "";
+    ageInput.value = "";
+    ramInput.value = "4";
+    storageInput.value = "128";
+    errorMsg.style.display = "none";
+    resultsCard.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
